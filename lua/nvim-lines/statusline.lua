@@ -19,8 +19,21 @@ local line_mode_map = {
     [''] = _mode_map[''] or "SELECT",
     ['t'] = _mode_map['t'] or "TERMINAL"
 }
-local line_statusline_getters = vim.g.line_statusline_getters or {}
-local line_unnamed_filename = vim.g.line_unnamed_filename or '[unnamed]'
+
+function GitInfo()
+    local branch = vim.g.coc_git_status or ''
+    local diff = vim.b.coc_git_status or ''
+    return (string.len(branch) > 0 and string.format(" %s ", branch) or " none ")
+        .. (string.len(diff) > 0 and string.format('%s ', vim.fn.trim(diff)) or '')
+end
+function GetFt()
+    local ft = vim.api.nvim_eval('&ft')
+    return string.format(' %s ', string.len(ft) > 0 and ft or '~')
+end
+local line_statusline_getters = {'v:lua.GitInfo', 'v:lua.GetFt'}
+
+local line_unnamed_filename = 'Untitled'
+
 local percent_bar = vim.g.line_percent_bar or {
    '░░░',
    '▒░░',

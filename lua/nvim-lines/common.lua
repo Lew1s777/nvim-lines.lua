@@ -1,10 +1,10 @@
 local M = {}
 local fn = vim.fn
 
-local line_powerline_enable = vim.g.line_powerline_enable == 1
-local line_nerdfont_enable = vim.g.line_nerdfont_enable == 1
+local line_powerline_enable = 1
+local line_nerdfont_enable = 1
 
-local _powerline_symbols = vim.g.powerline_symbols or {}
+local _powerline_symbols = { light_right = '', dark_right = '', light_left = '', dark_left = '' }
 local powerline_symbols = {
     light_right = _powerline_symbols['light_right'] or '',
     dark_right = _powerline_symbols['dark_right'] or '',
