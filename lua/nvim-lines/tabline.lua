@@ -6,7 +6,7 @@ local common = require'nvim-lines.common'
 
 local dirname = ' ' .. common.get_diricon() .. api.nvim_eval("$PWD == $HOME ? '~' : substitute($PWD, '\\v(.*/)*', '', 'g')") .. ' '
 local line_modi_mark = vim.g.line_modi_mark or '+'
-local line_unnamed_filename = vim.g.line_unnamed_filename or '[unnamed]'
+local line_unnamed_filename = vim.g.line_unnamed_filename or 'Untitled'
 local tabline_headsymbol = vim.g.line_tabline_headsymbol or '▒'
 
 local function get_buf_list()
