@@ -6,13 +6,11 @@ simple statusline & tabline plug of nvim
 
 This plugin requires neovim nightly (>=0.5.0).
 
-![avatar](./screenshots/line1.png)
+![avatar](https://github.com/yaocccc/nvim-lines.lua/raw/master/screenshots/line1.png)
 
 show custom statusline and tabline  
 
-my custom config [lua/pack/nvim-lines.lua](https://github.com/yaocccc/nvim/blob/master/lua/pack/nvim-lines.lua)
-
-![show](./screenshots/show.gif)
+![show](https://github.com/yaocccc/nvim-lines.lua/raw/master/screenshots/show.gif)
 
 ## EXAMPLE CONFIG
 
@@ -117,79 +115,12 @@ Example:
   ...
 ```
 
-## 中文说明(英文不咋地)
-
-```options
-默认设置
-  let g:line_statusline_enable = 1          # 状态栏 是否开启
-  let g:line_tabline_enable = 1             # 标题栏 是否开启
-  let g:line_powerline_enable = 0           # 状态栏 标题栏 展示powerline字体
-  let g:line_nerdfont_enable = 0            # 状态栏 标题栏 展示nerdfont图标
-  let g:line_dclick_interval = 100          # 标题栏 双击的间隔(双击可用于关闭buffer)
-  let g:line_modi_mark = '+'                # 标题栏 发生变更的buffer的标记
-  let g:line_unnamed_filename = '[unnamed]' # 状态栏 标题栏 未命名文件 文件名
-  let g:line_statusline_getters = []        # 状态栏 额外展示的内容的获取方法名 以下有部分使用例子
-  let g:line_mode_map = {"n": "NORMAL",     # 状态栏 当前模式和显示内容的映射
-                      \  "v": "VISUAL",
-                      \  "V": "V-LINE",
-                      \  "\<c-v>": "V-CODE",
-                      \  "i": "INSERT",
-                      \  "R": "R",
-                      \  "r": "R",
-                      \  "Rv": "V-REPLACE",
-                      \  "c": "CMD-IN",
-                      \  "s": "SELECT",
-                      \  "S": "SELECT",
-                      \  "\<c-s>": "SELECT",
-                      \  "t": "TERMINAL"}
-  let g:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' } # 高亮设置
-  let g.line_percent_bar = [                # 状态栏表示进度的符号组
-    \   '░░░',
-    \   '▒░░',
-    \   '█░░',
-    \   '█▒░',
-    \   '██░',
-    \   '██▒',
-    \   '███'
-    \ ]
-  let g.line_statusline_headsymbol = '▒'    # 状态栏左侧头部的符号
-  let g.line_tabline_headsymbol = '▒'       # 标题栏左侧头部的符号
-```
-
-```usage
-如果你想给你的状态栏添加一些额外内容，请加以下内容添加至你的vim配置中
-例子:
-  let g:line_statusline_getters = ['CocErrCount', 'GitStatus', 'GitInfo']
-
-  coc-diagnostic: (coc-nvim插件 的 错误数量展示)
-    func! CocErrCount()
-        let l:info = get(b:, 'coc_diagnostic_info', {})
-        return printf(' E%d ', get(l:info, 'error', 0))
-    endf
-
-  vim-gitgutter: (知名git插件 该方法可展示buffer中 新增 变更 去除 的行数)
-    func! GitStatus()
-        let [a,m,r] = GitGutterGetHunkSummary()
-        return printf(' +%d ~%d -%d ', a, m, r)
-    endf
-  coc-git: (coc-git插件 该方法可展示 branch名 以及buffer的 新增 变更 去除 的行数)
-    func! GitInfo()
-        let l:head = get(g:, 'coc_git_status', '')
-        let l:head = l:head != '' ? printf(' %s ', l:head) : ''
-        let l:status = get(b:, 'coc_git_status', '')
-        let l:status = l:status != '' ? printf('%s ', trim(l:status)) : ''
-        return l:head . l:status
-    endf
-
-  vim-fugitive: (vim-fugitive插件 提供的 git状态方法, PS: 该方法并不好用)
-    添加 'FugitiveStatusline' 到 g:line_statusline_getters 中
-
-  其他: 你可以添加任意其他内容到 g:line_statusline_getters 中，但要注意性能等影响
-```
 
 ## ENJOY IT
 
 ## Support
+
+***This is a supporting message from [the original author](https://github.com/yaocccc)***
 
 <a href="https://www.buymeacoffee.com/yaocccc" target="_blank">
   <img src="https://github.com/yaocccc/yaocccc/raw/master/qr.png">
