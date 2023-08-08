@@ -1,7 +1,7 @@
 if exists('s:loaded') | finish | endif
 let s:loaded = 1
 
-let g:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
+"let g:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
 
 let SetStatusline = { -> luaeval("require'nvim-lines.statusline'.set_statusline()")}
 let s:line_statusline_enable = get(g:, 'line_statusline_enable', 1)
