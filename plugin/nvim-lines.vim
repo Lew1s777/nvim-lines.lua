@@ -1,7 +1,7 @@
 if exists('s:loaded') | finish | endif
 let s:loaded = 1
 
-"let g:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
+"let s:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
 
 let SetStatusline = { -> luaeval("require'nvim-lines.statusline'.set_statusline()")}
 let s:line_statusline_enable = get(g:, 'line_statusline_enable', 1)
@@ -10,13 +10,12 @@ let s:line_tabline_enable = get(g:, 'line_tabline_enable', 1)
 func! s:init_hi()
     let s:default_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
     let [s:fg_key, s:bg_key] = ['ctermfg', 'ctermbg']
-    if &termguicolors == 1
-        "let s:default_hl = { 'none': 'NONE', 'light': '#11698e', 'dark': '#444445', 'break': '#868788', 'space': '#444445' }
-		let s:default_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
-		let [s:fg_key, s:bg_key] = ['ctermfg', 'ctermbg']
-		"let [s:fg_key, s:bg_key] = ['guifg', 'guibg']
-    endif
+    "if &termguicolors == 1
+    "	"let s:default_hl = { 'none': 'NONE', 'light': '#11698e', 'dark': '#444445', 'break': '#868788', 'space': '#444445' }
+	"	"let [s:fg_key, s:bg_key] = ['guifg', 'guibg']
+    "endif
 	let s:line_hl = get(g:, 'line_hl', s:default_hl)
+	"let s:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
     exec printf('hi VimLine_None        %s=%s', s:bg_key, s:line_hl.none)
     exec printf('hi VimLine_Light       %s=%s', s:bg_key, s:line_hl.light)
     exec printf('hi VimLine_Dark        %s=%s', s:bg_key, s:line_hl.dark)
