@@ -1,6 +1,7 @@
 if exists('s:loaded') | finish | endif
 let s:loaded = 1
 
+let $line_hl = "{'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238'}"
 "let s:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
 
 let SetStatusline = { -> luaeval("require'nvim-lines.statusline'.set_statusline()")}
