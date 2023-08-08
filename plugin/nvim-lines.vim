@@ -12,7 +12,7 @@ func! s:init_hi()
         let s:default_hl = { 'none': 'NONE', 'light': '#11698e', 'dark': '#444445', 'break': '#868788', 'space': '#444445' }
         let [s:fg_key, s:bg_key] = ['guifg', 'guibg']
     endif
-    let s:line_hl = get(g:, 'line_hl', s:default_hl)
+	let s:line_hl = { 'none': 'NONE', 'light': '24', 'dark': '238', 'break': '244', 'space': '238' }
     exec printf('hi VimLine_None        %s=%s', s:bg_key, s:line_hl.none)
     exec printf('hi VimLine_Light       %s=%s', s:bg_key, s:line_hl.light)
     exec printf('hi VimLine_Dark        %s=%s', s:bg_key, s:line_hl.dark)
